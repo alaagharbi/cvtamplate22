@@ -16,6 +16,7 @@ import com.example.cvtamplate2.fragments.HobbiesFragment
 import com.example.cvtamplate2.fragments.LanguageFragment
 import com.example.cvtamplate2.fragments.SkillsFragment
 import com.example.cvtamplate2.utils.*
+import com.example.cvtamplate2.utils.CV_DETAILS
 
 class ResumePage : AppCompatActivity() {
 
