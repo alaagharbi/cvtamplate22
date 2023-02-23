@@ -8,8 +8,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cvtamplate2.utils.CvObject
-import com.example.cvtamplate2.utils.*
+
 
 class FormPart2 : AppCompatActivity() {
 

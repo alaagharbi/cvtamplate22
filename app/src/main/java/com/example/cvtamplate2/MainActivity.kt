@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.cvtamplate2
 
 import android.Manifest
@@ -8,11 +10,9 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Patterns
-import android.view.inputmethod.EditorInfo.IME_ACTION_DONE
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
-import com.example.cvtamplate2.utils.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var sharedPrefs: SharedPreferences
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE_CODE) {
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         requestPermissions(
             arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
             PERMS_REQUEST_CODE
-        );
+        )
 
         fNameTextLayout = findViewById(R.id.fullNameTxtInput)
         emailTextLayout = findViewById(R.id.emailTxtInput)
@@ -93,19 +94,12 @@ class MainActivity : AppCompatActivity() {
         val inputs = inputLayouts.map { t -> t.editText }
 
 
-        val ageInput = inputs.first { it?.id == R.id.ageInput }
+        inputs.first { it?.id == R.id.ageInput }
         val emailInput = inputs.first { it?.id == R.id.emailInput }
-
-        // Event listeners
-        ageInput?.on(IME_ACTION_DONE) {
-            ageInput.apply {
-                clearFocus()
-                hideKeyboard()
-            }
-        }
 
         profileImage.setOnClickListener {
 
+            @Suppress("DEPRECATION")
             startActivityForResult(
                 Intent(
                     Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI
@@ -152,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                 else -> {
                     inputLayouts.filter { it.isErrorEnabled }.forEach {
                         it.apply {
-                            isErrorEnabled = false;
+                            isErrorEnabled = false
                             error = ""
                         }
                     }

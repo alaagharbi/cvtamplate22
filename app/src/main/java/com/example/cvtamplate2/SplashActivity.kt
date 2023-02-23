@@ -9,11 +9,9 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        Handler(mainLooper).postDelayed({ //This method will be executed once the timer is over
-            // Start your app main activity
+        Handler(mainLooper).postDelayed({
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
-            // close this activity
             finish()
         }, 1500)
     }
