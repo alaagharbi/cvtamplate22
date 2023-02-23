@@ -1,4 +1,4 @@
-package com.example.cvtamplate2.utils
+package com.example.cvtamplate2
 
 import android.net.Uri
 import android.os.Parcelable

@@ -15,8 +15,7 @@ import com.example.cvtamplate2.fragments.BasicInfoFragment
 import com.example.cvtamplate2.fragments.HobbiesFragment
 import com.example.cvtamplate2.fragments.LanguageFragment
 import com.example.cvtamplate2.fragments.SkillsFragment
-import com.example.cvtamplate2.utils.*
-import com.example.cvtamplate2.utils.CV_DETAILS
+import com.example.cvtamplate2.*
 
 class ResumePage : AppCompatActivity() {
 
@@ -64,9 +63,6 @@ class ResumePage : AppCompatActivity() {
 
         name = findViewById(R.id.nameText)
         email = findViewById(R.id.emailText)
-
-        //careerBtn = findViewById(R.id.careerBtn)
-
         setSupportActionBar(toolbar)
 
         name.text = cvObject!!.fullName
