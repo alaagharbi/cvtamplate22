@@ -46,13 +46,13 @@ class BasicInfoFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun new(name: String, gender: String, age: Int, email: String) =
+        fun new(name: String, gender: String, age: String, email: String) =
             BasicInfoFragment().apply {
                 arguments = Bundle().apply {
 
                     putString(NAME_ARG, name)
                     putString(GENDER_ARG, gender)
-                    putInt(AGE_ARG, age)
+                    putString(AGE_ARG, age)
                     putString(EMAIL_ARG, email)
                 }
             }
