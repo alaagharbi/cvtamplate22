@@ -13,7 +13,6 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentManager
-import com.example.cvtamplate2.R.layout
 import com.example.cvtamplate2.fragments.BasicInfoFragment
 import com.example.cvtamplate2.fragments.HobbiesFragment
 import com.example.cvtamplate2.fragments.LanguageFragment
@@ -33,7 +32,7 @@ class Result : AppCompatActivity() {
     private lateinit var basicInfoFragment: BasicInfoFragment
     @SuppressLint("ResourceType")
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(layout.menu, menu)
+        menuInflater.inflate(R.layout.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -50,7 +49,7 @@ class Result : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_result)
+        setContentView(R.layout.activity_result)
         basicInfoFragment = BasicInfoFragment.new(
             intent.getStringExtra("fullname").toString(), intent.getStringExtra("gender").toString(),
             intent.getStringExtra("age")!!,intent.getStringExtra("email").toString()

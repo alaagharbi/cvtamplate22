@@ -10,8 +10,10 @@
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         app:menu="@layout/menu"
-        app:title="@string/title_text"
+        app:navigationIcon="@drawable/ic_baseline_home"
+        app:title="Your resume"
         app:titleMarginStart="10dp"
         app:titleTextColor="@color/white" />
 

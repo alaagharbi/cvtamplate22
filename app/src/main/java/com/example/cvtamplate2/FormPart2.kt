@@ -56,7 +56,7 @@ class FormPart2 : AppCompatActivity() {
 
 
 
-            Intent(this, Result::class.java).let { i ->
+            val i = Intent(this, Result::class.java)
 
                 i.putExtra("fullname",intent.getStringExtra("fullname"))
                 i.putExtra("email",email)
@@ -71,10 +71,8 @@ class FormPart2 : AppCompatActivity() {
                 i.putExtra("sports",sportChbx.isChecked)
                 i.putExtra("games",gamesChbx.isChecked)
                 i.putExtra("music",musicChbx.isChecked)
-
+            startActivity(i)
             }
-            finish()
         }
 
     }
-}
