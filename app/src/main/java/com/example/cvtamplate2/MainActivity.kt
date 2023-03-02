@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var layoutTitle: TextView
 
-    private val cvObject = CvObject()
 
     private lateinit var sharedPrefs: SharedPreferences
 
@@ -38,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == PICK_IMAGE_CODE) {
             profileImage.setImageURI(data?.data)
-            cvObject.imgURI = data?.data
         }
     }
 
@@ -155,14 +153,13 @@ class MainActivity : AppCompatActivity() {
                     layoutTitle.setTextColor(resources.getColor(R.color.colorPrimaryDark))
 
 
-                    cvObject.fullName = fNameTextLayout.editText?.text.toString()
-                    cvObject.email = emailTextLayout.editText?.text.toString()
-                    cvObject.age = Integer.parseInt(ageTextLayout.editText?.text.toString())
-                    cvObject.gender = checkedRadioButton.text.toString()
 
                     Intent(this, FormPart2::class.java).let { i ->
-                        i.putExtra(INTENT_VALUE_NAME, cvObject)
-                        println("CvObject: [MAIN ACT] $cvObject")
+                        i.putExtra("fullname", fNameTextLayout.editText?.text.toString())
+                        i.putExtra("email",emailTextLayout.editText?.text.toString())
+                        i.putExtra("age", ageTextLayout.editText?.text.toString())
+                        i.putExtra("gender",checkedRadioButton.text.toString())
+
                         startActivity(i)
                     }
                 }

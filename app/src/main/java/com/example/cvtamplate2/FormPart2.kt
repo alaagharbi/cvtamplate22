@@ -33,18 +33,14 @@ class FormPart2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_part2)
-
         supportActionBar?.title = resources.getString(R.string.title1)
 
         androidSk = findViewById(R.id.andrSkBar)
         iosSk = findViewById(R.id.iosSkBar)
         flutterSk = findViewById(R.id.fltrSkBar)
-
         arabicChbx = findViewById(R.id.ar)
         frenchChbx = findViewById(R.id.fr)
         englishChbx = findViewById(R.id.en)
-
-
         musicChbx = findViewById(R.id.music)
         sportChbx = findViewById(R.id.sport)
         gamesChbx = findViewById(R.id.games)
@@ -54,42 +50,28 @@ class FormPart2 : AppCompatActivity() {
         sharedPrefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
         submitBtn.setOnClickListener {
-
-            val scores = hashMapOf(
-                Pair(ANDROID_KEY, androidSk.progress),
-                Pair(iOS_KEY, iosSk.progress),
-                Pair(FLUTTER_KEY, flutterSk.progress)
-            )
-
-            val checkedLanguages =
-                hashMapOf(
-                    Pair(EN, englishChbx.isChecked),
-                    Pair(AR, arabicChbx.isChecked),
-                    Pair(FR, frenchChbx.isChecked)
-                )
-
-            val checkedHobbies =
-                hashMapOf(
-                    Pair(GAMES, gamesChbx.isChecked),
-                    Pair(SPORT, sportChbx.isChecked),
-                    Pair(MUSIC, musicChbx.isChecked)
-                )
-
-            val cvObject = intent.getParcelableExtra<CvObject>(INTENT_VALUE_NAME)
-
-            cvObject?.apply {
-                skillsScore = scores
-                languages = checkedLanguages
-                hobbies = checkedHobbies
-            }
-
-            println("CvObject: [FORM 2 ACT] $cvObject")
+            var  email = intent.getStringExtra("email").toString()
+            var  age = intent.getStringExtra("age").toString()
+            var  gender = intent.getStringExtra("gender").toString()
 
 
 
-            Intent(this, ResumePage::class.java).let { i ->
-                i.putExtra(INTENT_VALUE_NAME, cvObject)
-                startActivity(i)
+            Intent(this, Result::class.java).let { i ->
+
+                i.putExtra("fullname",intent.getStringExtra("fullname"))
+                i.putExtra("email",email)
+                i.putExtra("age",age)
+                i.putExtra("gender",gender)
+                i.putExtra("android",androidSk.autofillValue)
+                i.putExtra("ios",iosSk.autofillValue)
+                i.putExtra("flutter",flutterSk.autofillValue)
+                i.putExtra("french",frenchChbx.isChecked)
+                i.putExtra("arabic",arabicChbx.isChecked)
+                i.putExtra("english",englishChbx.isChecked)
+                i.putExtra("sports",sportChbx.isChecked)
+                i.putExtra("games",gamesChbx.isChecked)
+                i.putExtra("music",musicChbx.isChecked)
+
             }
             finish()
         }
